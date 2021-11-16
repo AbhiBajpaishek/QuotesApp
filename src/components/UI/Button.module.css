@@ -1,0 +1,12 @@
+.btn{
+    width: 9rem;
+    color: white;
+    background-color: teal;
+    border:none;
+    padding: 0.5rem 1rem;
+    font-size: 20px;
+}
+
+.btn:hover{
+    cursor: pointer;
+}

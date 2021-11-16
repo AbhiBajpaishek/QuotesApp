@@ -1,0 +1,42 @@
+.header{
+    background-color: teal;
+    color: white;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    font-size: 30px;
+}
+.header-logo{
+    width: 30rem;    
+    
+}
+
+.header-menu{
+    width: 15rem;
+}
+
+.header-menu__items{
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-menu__items li{
+    list-style: none;
+}
+
+.header-menu__items li:hover{
+    cursor: pointer;
+    color: rgba(201, 196, 196, 0.925);
+}
+
+.active-link{
+    background-color: white;
+    color: teal;
+    text-decoration: none;
+}
+
+.inactive-link{
+    color: white;
+    text-decoration: none;
+}
+

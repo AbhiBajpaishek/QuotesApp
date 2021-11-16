@@ -1,0 +1,12 @@
+.quote{
+    display: flex;
+    justify-content: space-between;
+}
+
+.quote > div{
+    width:9rem;
+}
+
+.quote-desc{
+    overflow: hidden;
+}

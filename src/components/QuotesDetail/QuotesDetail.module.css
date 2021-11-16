@@ -1,0 +1,30 @@
+.quote-detail{
+    background-color: black;
+    width: 20rem;
+    padding: 3rem;
+    color: white;
+    font-size: large;
+    font-weight: bold;
+    margin: auto;
+}
+
+.quote-detail__description{
+    font-size: 1.5rem;
+}
+
+.quote-detail__author{
+    text-align: right;
+    margin: 1rem 2rem 0 0;
+    font-size: 1rem;
+}
+
+.quote-comments{
+    color: black;
+    margin: 2rem auto;
+    width: 20rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+}
