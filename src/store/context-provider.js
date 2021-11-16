@@ -3,16 +3,8 @@ import useFirebase from "../hooks/use-firebase";
 import context from "./context-store";
 
 let initialState = {
-    quotes: [
-      {
-        id:"quote1",
-        title: "First Quote",
-        author: "Max",
-        description:
-          "React is fun to Learn!!",
-        },
-      ],
-      comments: [],
+    quotes: [],
+    comments: [],
   };
 
 const quotesReducer = (state,action) => {
@@ -54,14 +46,14 @@ const ContextProvider = (props) => {
       });
     
       commentsFromDB.forEach((comments) => {
-        addCommentHandler(comments.id,comments.comment);
+        addCommentHandler({id:comments.id,comment:comments.comment});
       });
     }
       getAllQuotesToContext();
     },[getQuotes,getComments]);
 
-    const addCommentHandler = (quoteID,comment) => {
-        dispatchQuotes({type:"AddComment",quoteComment:{id:quoteID,comment:comment}});
+    const addCommentHandler = (comment) => {
+        dispatchQuotes({type:"AddComment",quoteComment:comment});
     }
 
     const addQuotesHandler = (quote) => {
@@ -77,7 +69,7 @@ const ContextProvider = (props) => {
         quotes: quotesState.quotes,
         comments:quotesState.comments,
         addQuote: addQuotesHandler,
-        addComment: addCommentHandler,
+        addCommentToContext: addCommentHandler,
     }
 
     return <context.Provider value ={quotesContext} >

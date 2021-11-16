@@ -19,7 +19,7 @@ const useFirebase = () => {
         return newQuotes;
     },[]);
     
-    const addQuote = (quote) => {
+    const addQuote = (quote,addToContext) => {
         fetch(`${URL}quotes.json`, {
             method: "POST",
             headers:{
@@ -29,7 +29,7 @@ const useFirebase = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Response of addQuote: ", data);
+            addToContext({id:data.name,...quote})
        });
     }
 
@@ -47,7 +47,7 @@ const useFirebase = () => {
         return newComments;
     },[]);
 
-    const addComment = (comment) => {
+    const addComment = (comment,addCommentToContext) => {
         fetch(`${URL}comments.json`, {
             method: "POST",
             headers:{
@@ -57,7 +57,7 @@ const useFirebase = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Response of addQuote: ", data);
+            addCommentToContext(comment);
        });
     }
     

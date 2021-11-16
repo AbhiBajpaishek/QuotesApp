@@ -1,4 +1,5 @@
-import React,{useContext,useState} from "react";
+import React,{useState,useContext} from "react";
+import useFirebase from "../../hooks/use-firebase";
 import context from "../../store/context-store";
 import Button from "../UI/Button";
 import styles from './AddComment.module.css';
@@ -6,11 +7,13 @@ import styles from './AddComment.module.css';
 const AddComment = (props) => {
     
     const [inputComment, setInputComment] = useState("");
-    const ctx = useContext(context);
+    const {addCommentToContext} = useContext(context);  
+    const {addComment} = useFirebase();
 
     const postCommentHandler= (e) => {
         e.preventDefault();
-        ctx.addComment(props.quoteID,inputComment);
+        addComment({id:props.quoteID,comment:inputComment},addCommentToContext);
+        // ctx.addComment(props.quoteID,inputComment);
         setInputComment("");
     }
 

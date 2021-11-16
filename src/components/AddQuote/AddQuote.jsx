@@ -19,8 +19,7 @@ const AddQuote = () => {
             description:
               quoteData.quoteDescription,
         }
-        addQuote(quote);
-        ctx.addQuote();
+        addQuote(quote,ctx.addQuote);
         navigate('../quotes');
     }
 

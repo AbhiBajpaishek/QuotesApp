@@ -40,7 +40,7 @@ const QuotesDetail = () => {
               />
             </Routes>
             Comments...
-            <Comments quoteID = {quote.id} ></Comments>
+            <Comments quoteID = {params.quoteID} ></Comments>
       </div>
     }
       </>
