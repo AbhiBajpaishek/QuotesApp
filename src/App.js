@@ -14,7 +14,7 @@ function App() {
       <ContextProvider>
         <main>
           <Routes>
-            <Route path="/quotes/" element={<Quotes></Quotes>} />
+            <Route path="/quotes" element={<Quotes></Quotes>} />
 
             <Route path="/addQuotes" element={<AddQuote />} />
 
@@ -24,7 +24,6 @@ function App() {
             />
 
             <Route path="/" element={<Navigate to="/quotes"></Navigate>} />
-            <Route path="" element={<Navigate to="/quotes"></Navigate>} />
           </Routes>
         </main>
       </ContextProvider>
