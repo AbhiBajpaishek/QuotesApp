@@ -14,8 +14,8 @@ const Quote = (props) => {
   return (
       <Card className={styles.quote}>
         <div>
-          <h3>{props.title}</h3>
-          <h6 className = {styles["quote-desc"]}>{props.author}</h6>
+          <h3 className = {styles["quote-title"]}>{props.title}</h3>
+          <div><h6 className = {styles["quote-author"]}>~{props.author}</h6></div>
         </div>
         <div>
           <Button onClick = {viewFullscreenHandler} > View Fullscreen</Button>

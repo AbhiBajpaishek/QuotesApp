@@ -23,7 +23,7 @@ const AddComment = (props) => {
     return <div className= {styles["comments"]}>
         <h4>Your Comments</h4>
         <textarea className = {styles["inputText"]} onChange = {commentChangeHandler} value = {inputComment}></textarea>
-        <Button type = "submit" onClick = {postCommentHandler}>Post Comment</Button>
+        <Button type = "submit" className = {styles["post-comment-btn"]} onClick = {postCommentHandler}>Post Comment</Button>
     </div>
 }
 

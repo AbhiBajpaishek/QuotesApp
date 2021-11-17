@@ -30,16 +30,17 @@ const QuotesDetail = () => {
     {quote && 
       <div className = {styles["quote-comments"]}>
             <Routes>
-            <Route
-              path="addComment"
-              element={<AddComment quoteID = {quote.id}></AddComment>}
+              <Route
+                path="addComment"
+                element={<AddComment quoteID = {quote.id}></AddComment>}
               />
-            <Route
-              path=""
-              element={<Button onClick = {addCommentHandler} >Add a comment</Button>}
+              <Route
+                path=""
+                element={<Button onClick = {addCommentHandler} >Add a comment</Button>}
               />
             </Routes>
-            Comments...
+            <br/>
+            <br/>
             <Comments quoteID = {params.quoteID} ></Comments>
       </div>
     }

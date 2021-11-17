@@ -1,0 +1,21 @@
+.menu{
+    width: 2.1rem;
+    display: block;
+    margin: auto;
+    position: absolute;
+    right: 0;
+}
+
+.icon{
+    border: 2px solid black;
+    margin: 5px;
+    background-color: black;
+    cursor: pointer;
+}
+
+@media(min-width:640px)
+{
+    .menu{
+        display: none;
+    }
+}

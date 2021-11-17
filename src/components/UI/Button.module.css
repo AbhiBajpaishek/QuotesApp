@@ -1,5 +1,5 @@
 .btn{
-    width: 9rem;
+    width: 70vw;
     color: white;
     background-color: teal;
     border:none;
@@ -9,4 +9,11 @@
 
 .btn:hover{
     cursor: pointer;
+}
+
+@media(min-width:640px)
+{
+    .btn{
+        width: 9rem;
+    }
 }

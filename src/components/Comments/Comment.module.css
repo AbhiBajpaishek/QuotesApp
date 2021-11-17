@@ -1,6 +1,15 @@
 .comment{
     list-style: none;
     text-align: right;
-    padding: 1rem;
+    padding: 0.2rem;
     margin-bottom: 1rem;
+    width: 90vw;
+}
+
+@media(min-width:640px)
+{
+    .comment{
+        width: auto;
+        padding: 1rem;
+    }
 }
