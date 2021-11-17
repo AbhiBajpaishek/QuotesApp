@@ -13,16 +13,24 @@ const context = React.createContext(
         ],
         comments: [
           {
-            id:"c1",
-            comment:"Comment1"
-          }, 
+            id: "comment1",
+            comment: 
+            {
+              quoteId:"c1",
+              comment:"Comment1"
+            }
+          },
           {
-            id:"c2",
-            comment:"Comment2"
+            id:"comment2",
+            comment: 
+            {
+              quoteId:"c2",
+              comment:"Comment2"
+            }
           }
         ],
-        addComment:()=>{},
-        addQuote:()=>{}
+      addComment:()=>{},
+      addQuote:()=>{}
     }
 );
 

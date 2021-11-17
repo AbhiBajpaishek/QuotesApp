@@ -46,7 +46,7 @@ const ContextProvider = (props) => {
       });
     
       commentsFromDB.forEach((comments) => {
-        addCommentHandler({id:comments.id,comment:comments.comment});
+        addCommentHandler(comments);
       });
     }
       getAllQuotesToContext();

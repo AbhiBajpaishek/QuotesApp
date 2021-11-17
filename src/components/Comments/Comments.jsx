@@ -5,12 +5,12 @@ import styles from './Comments.module.css';
 
 const Comments = (props) => {
 
-    const comments = useContext(context).comments.filter((comment) => comment.id === props.quoteID);
+    const comments = useContext(context).comments.filter((commentObj) => commentObj.comment.quoteId === props.quoteID);
 
     return <div className= {styles["comments"]}>
         <ul>
-            {comments && comments.map((comment) => {
-                return <Comment key = {comment.id}>{comment.comment}</Comment> 
+            {comments && comments.map((commentObj) => {
+                return <Comment key = {commentObj.id}>{commentObj.comment.comment}</Comment> 
             })}
         </ul>
     </div>

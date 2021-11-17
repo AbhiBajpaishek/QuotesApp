@@ -12,8 +12,7 @@ const AddComment = (props) => {
 
     const postCommentHandler= (e) => {
         e.preventDefault();
-        addComment({id:props.quoteID,comment:inputComment},addCommentToContext);
-        // ctx.addComment(props.quoteID,inputComment);
+        addComment({quoteId:props.quoteID,comment:inputComment},addCommentToContext);
         setInputComment("");
     }
 

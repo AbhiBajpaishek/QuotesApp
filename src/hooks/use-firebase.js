@@ -40,8 +40,11 @@ const useFirebase = () => {
         const newComments = [];
         comments && Object.keys(comments).forEach((key) => {
             newComments.push({
-                id:comments[key].id,
-                comment:comments[key].comment
+                id:key,
+                comment:{
+                    quoteId:comments[key].id,
+                    comment:comments[key].comment
+                }
             });
         });
         return newComments;
@@ -57,7 +60,11 @@ const useFirebase = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            addCommentToContext(comment);
+            const commentObj = {
+                id:data.name,
+                comment:comment
+            }
+            addCommentToContext(commentObj);
        });
     }
     
