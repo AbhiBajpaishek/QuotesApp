@@ -24,6 +24,7 @@ function App() {
             />
 
             <Route path="/" element={<Navigate to="/quotes"></Navigate>} />
+            <Route path="" element={<Navigate to="/quotes"></Navigate>} />
           </Routes>
         </main>
       </ContextProvider>

@@ -26,6 +26,10 @@
         height: auto;
     }
 
+    .quote > div{
+        margin: auto 0;
+    }
+
     .quote-author{
         overflow: hidden;
     }
