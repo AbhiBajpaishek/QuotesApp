@@ -3,8 +3,8 @@
     border: 1px none;
     box-shadow: 0px 0px 6px 0px #231e1e;
     border-radius: 5px;
-
-    width: 95vw;
+    height: 19rem;
+    width: 30rem;
     margin: auto;
     padding: 0.6rem;
 }
@@ -13,7 +13,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 67vh;
+    height: 18rem;
 }
 
 .add-quote__form > label{
@@ -22,7 +22,7 @@
 
 .text-input{
     background-color: #eae8e5;
-    height: 1.8rem;
+    height: 1rem;
     padding: 0.4rem;
     border: none;
     border-radius: 6px;
@@ -30,31 +30,9 @@
 }
 
 .text-input__long{
-    height: 12rem;
+    height: 8rem;
 }
 
 .add-quote__btn{
     right: 0;
-    margin: 0 auto;
-    width: 85vw;
-}
-
-@media(min-width:640px)
-{
-    .add-quote{
-        height: 19rem;
-        width: 30rem;
-    }
-
-    .text-input__long{
-        height: 8rem;
-    }
-
-    .add-quote__btn{
-        width: 16rem;
-    }
-
-    .add-quote__form{
-        height: 18rem;
-    }
 }
