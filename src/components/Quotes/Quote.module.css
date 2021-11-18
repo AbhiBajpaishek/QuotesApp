@@ -8,7 +8,6 @@
 
 .quote > div{
     width:auto;
-    max-width: 80%;
     overflow: hidden;
 }
 
@@ -30,6 +29,7 @@
 
     .quote > div{
         margin: auto 0;
+        max-width: 80%;
     }
 
     .quote-author{
