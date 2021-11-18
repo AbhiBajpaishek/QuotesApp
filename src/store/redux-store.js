@@ -1,6 +1,6 @@
 import {createStore} from 'redux';
 
-const initialiState = {
+const initialState = {
     quotes: [
         {
           id: "quote1",
@@ -29,29 +29,21 @@ const initialiState = {
         }
       ]
   };
-const reducerFn = (state = initialiState,action) => {
+const reducerFn = (state = initialState,action) => {
     if(action.type === "ADD_COMMENT")
     {
         const updatedComments = [...state.comments];
-        const inputCommment = {
-            id: "Comment" + Math.random(1).toFixed(2),
-            comment: action.comment
-        };
-        updatedComments.push(inputCommment);
+        updatedComments.push(action.comment);
         return {...state,comments:[...updatedComments]};
     }
 
     if(action.type === "ADD_QUOTE")
     {
         const updatedQuotes = [...state.quotes];
-        const inputQuotes = {
-            id:"Quote" + Math.random(1).toFixed(2),
-            ...action.quote
-        };
-        updatedQuotes.push(inputQuotes);
+        updatedQuotes.push(action.quote);
         return {quotes:updatedQuotes,comments:[...state.comments]};
     }
-    return {...initialiState};
+    return {...initialState};
 
 }
 

@@ -1,14 +1,13 @@
 import React, {useState } from "react";
 import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
 import Button from "../UI/Button";
 import styles from './AddQuote.module.css';
+import useFirebase from '../../hooks/use-firebase';
 
 const AddQuote = () => {
     const [quoteData,setQuoteData] = useState({quoteAuthor:"", quoteDescription:""});
     const navigate = useNavigate();
-    // const ctx = useContext(context); 
-    const dispathFn = useDispatch();
+    const {addQuote} = useFirebase();
 
     const addQuoteHandler = (e) => {
         e.preventDefault();
@@ -18,8 +17,7 @@ const AddQuote = () => {
             description:
               quoteData.quoteDescription,
         }
-        //addQuote(quote,ctx.addQuote);
-        dispathFn({type:"ADD_QUOTE",quote:quote});
+        addQuote(quote);
         navigate('../quotes');
     }
 

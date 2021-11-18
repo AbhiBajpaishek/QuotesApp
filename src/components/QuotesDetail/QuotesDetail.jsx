@@ -20,7 +20,7 @@ const QuotesDetail = () => {
   return (<>
     <div className={styles["quote-detail"]}>
       <div className={styles["quote-detail__description"]}>
-        {quote && quote.description}
+        <p>{quote && quote.description}</p>
       </div>
       <div className={styles["quote-detail__author"]}>
         <em> ~{quote && quote.author}</em>

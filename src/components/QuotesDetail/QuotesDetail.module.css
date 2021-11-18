@@ -38,13 +38,14 @@
 {
     .quote-detail{
         width: 30rem;
-        padding: 3rem;
-        font-size: large;
+        padding: 1.3rem 1rem;
+        font-size: 0.6rem;
         font-weight: bold;
     }
 
     .quote-detail__description{
         font-size: 1.5rem;
+        word-break: break-word;
     }
 
     .quote-detail__author{
