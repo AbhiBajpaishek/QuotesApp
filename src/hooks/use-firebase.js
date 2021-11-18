@@ -1,8 +1,11 @@
-import {  useCallback } from "react";
+import {useCallback} from "react";
+import {useDispatch} from "react-redux";
 
 const URL = "https://quotes-app-b30d6-default-rtdb.firebaseio.com/";
 
 const useFirebase = () => {
+
+    const dispatchFn = useDispatch();
 
     const getQuotes = useCallback(async () => {
         const response = await fetch(`${URL}quotes.json`);
@@ -19,7 +22,7 @@ const useFirebase = () => {
         return newQuotes;
     },[]);
     
-    const addQuote = (quote,addToContext) => {
+    const addQuote = (quote) => {
         fetch(`${URL}quotes.json`, {
             method: "POST",
             headers:{
@@ -29,7 +32,7 @@ const useFirebase = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            addToContext({id:data.name,...quote})
+            dispatchFn({type:"ADD_QUOTE",quote:{id:data.name,...quote}});
        });
     }
 
@@ -50,7 +53,7 @@ const useFirebase = () => {
         return newComments;
     },[]);
 
-    const addComment = (comment,addCommentToContext) => {
+    const addComment = (comment) => {
         fetch(`${URL}comments.json`, {
             method: "POST",
             headers:{
@@ -61,10 +64,10 @@ const useFirebase = () => {
         .then((response) => response.json())
         .then((data) => {
             const commentObj = {
-                id:data.name,
+                quoteId:data.name,
                 comment:comment
             }
-            addCommentToContext(commentObj);
+            dispatchFn({type:"ADD_COMMENT",comment:commentObj});
        });
     }
     
