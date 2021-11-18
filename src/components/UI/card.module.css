@@ -4,12 +4,6 @@
     background-color: rgb(171, 220, 248);
     box-shadow:  1px 1px 5px 1px;
     margin: auto;
-    width: 90vw;
+    width: 30%;
     padding: 1rem;
-}
-
-@media(min-width:640px) {
-    .card{
-        width: 30%;
-    }
 }

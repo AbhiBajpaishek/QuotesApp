@@ -1,38 +1,12 @@
 .quote{
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
-    height: 7rem;
-    width: 85vw;
 }
 
 .quote > div{
-    width:auto;
-    max-width: 80%;
+    width:9rem;
+}
+
+.quote-desc{
     overflow: hidden;
-}
-
-.quote-title{
-    margin-bottom: 1rem;
-}
-
-.quote-author{
-    text-align: right;
-    margin: 0 0.4rem 0.4rem 0;
-    font-size: 0.7rem;
-}
-
-@media(min-width:640px){
-    .quote{
-        flex-direction: row;
-        height: auto;
-    }
-
-    .quote > div{
-        margin: auto 0;
-    }
-
-    .quote-author{
-        overflow: hidden;
-    }
 }
