@@ -1,11 +1,11 @@
-import React,{useContext} from "react";
-import context from '../../store/context-store';
+import React from "react";
+import { useSelector } from "react-redux";
 import Comment from './Comment';
 import styles from './Comments.module.css';
 
 const Comments = (props) => {
 
-    const comments = useContext(context).comments.filter((commentObj) => commentObj.comment.quoteId === props.quoteID);
+    const comments = useSelector(context => context.comments).filter((commentObj) => commentObj.comment.quoteId === props.quoteID);
 
     return <div className= {styles["comments"]}>
         <ul>

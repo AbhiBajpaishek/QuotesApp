@@ -3,7 +3,8 @@ import Quotes from "./components/Quotes/quotes";
 import Header from "./components/UI/header";
 import QuotesDetail from "./components/QuotesDetail/QuotesDetail";
 import AddQuote from "./components/AddQuote/AddQuote";
-import ContextProvider from "./store/context-provider";
+// import ContextProvider from "./store/context-provider";
+import ReduxProvider from "./store/ReduxProvider";
 import "./App.css";
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Header></Header>
-      <ContextProvider>
+      <ReduxProvider>
         <main>
           <Routes>
             <Route path="/quotes" element={<Quotes></Quotes>} />
@@ -26,7 +27,7 @@ function App() {
             <Route path="/" element={<Navigate to="/quotes"></Navigate>} />
           </Routes>
         </main>
-      </ContextProvider>
+      </ReduxProvider>
     </div>
   );
 }

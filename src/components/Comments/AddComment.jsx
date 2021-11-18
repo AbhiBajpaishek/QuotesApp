@@ -1,18 +1,24 @@
-import React,{useState,useContext} from "react";
-import useFirebase from "../../hooks/use-firebase";
-import context from "../../store/context-store";
+import React,{useState} from "react";
+import { useDispatch } from "react-redux";
 import Button from "../UI/Button";
 import styles from './AddComment.module.css';
 
 const AddComment = (props) => {
     
     const [inputComment, setInputComment] = useState("");
-    const {addCommentToContext} = useContext(context);  
-    const {addComment} = useFirebase();
+    const dispatchFn = useDispatch();
 
     const postCommentHandler= (e) => {
         e.preventDefault();
-        addComment({quoteId:props.quoteID,comment:inputComment},addCommentToContext);
+        dispatchFn({
+            type:"ADD_COMMENT",
+            comment:
+            {
+                quoteId:props.quoteID,
+                comment:inputComment
+            }
+        });
+        //addComment(,addCommentToContext);
         setInputComment("");
     }
 
