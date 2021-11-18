@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import context from "../../store/context-store";
+import React from "react";
+import { useSelector } from "react-redux";
 import Quote from "./Quote";
 import styles from './quotes.module.css';
 
 
 const Quotes = () => {
 
-    const quotes = useContext(context).quotes; 
-
+    const quotes = useSelector(context => context.quotes);
     return (<>
             <ul>
                 {

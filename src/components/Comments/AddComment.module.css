@@ -4,9 +4,26 @@
 
 .inputText{
     height: 4rem;
-    width: 30rem;
-    padding: 1rem;
+    width: 85vw;
+    padding: 0.4rem;
     background-color: antiquewhite;
     color: black;
-    font-size: 1rem;
+    font-size: 0.6rem;
+}
+
+.post-comment-btn{
+    width: 85vw;
+}
+
+@media(min-width:640px)
+{
+    .inputText{
+        font-size: 1rem;
+        padding: 1rem;
+        width: 30rem;
+    }
+
+    .post-comment-btn{
+        width: inherit;
+    }
 }

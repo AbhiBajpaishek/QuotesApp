@@ -1,30 +1,58 @@
 .quote-detail{
     background-color: black;
-    width: 20rem;
-    padding: 3rem;
+    height: 12rem;
+    width: 85vw;
+    padding: 0.5rem;
     color: white;
-    font-size: large;
-    font-weight: bold;
+    font-size: 0.4rem;
+    font-weight: 400;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 .quote-detail__description{
-    font-size: 1.5rem;
+    font-size: 1rem;
 }
 
 .quote-detail__author{
     text-align: right;
-    margin: 1rem 2rem 0 0;
+    margin: 1rem 0 0 0;
     font-size: 1rem;
 }
 
 .quote-comments{
     color: black;
     margin: 2rem auto;
-    width: 20rem;
+    width: 90vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
     height: auto;
+}
+
+
+@media(min-width:640px)
+{
+    .quote-detail{
+        width: 30rem;
+        padding: 1.3rem 1rem;
+        font-size: 0.6rem;
+        font-weight: bold;
+    }
+
+    .quote-detail__description{
+        font-size: 1.5rem;
+        word-break: break-word;
+    }
+
+    .quote-detail__author{
+        margin: 1rem 2rem 0 0;
+    }
+
+    .quote-comments{
+        width: 20rem;
+    }
 }
