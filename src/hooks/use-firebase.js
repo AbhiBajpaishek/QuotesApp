@@ -1,5 +1,7 @@
 import {useCallback} from "react";
 import {useDispatch} from "react-redux";
+import { quotesActions } from "../store/quotesSlice";
+import { commentsActions } from "../store/commentsSlice";
 
 const URL = "https://quotes-app-b30d6-default-rtdb.firebaseio.com/";
 
@@ -32,7 +34,8 @@ const useFirebase = () => {
         })
         .then((response) => response.json())
         .then((data) => {
-            dispatchFn({type:"ADD_QUOTE",quote:{id:data.name,...quote}});
+            // dispatchFn({type:"ADD_QUOTE",quote:{id:data.name,...quote}});
+            dispatchFn(quotesActions.addQuote({quotes:{id:data.name,...quote}}));
        });
     }
 
@@ -45,7 +48,7 @@ const useFirebase = () => {
             newComments.push({
                 id:key,
                 comment:{
-                    quoteId:comments[key].id,
+                    quoteId:comments[key].quoteId,
                     comment:comments[key].comment
                 }
             });
@@ -64,10 +67,10 @@ const useFirebase = () => {
         .then((response) => response.json())
         .then((data) => {
             const commentObj = {
-                quoteId:data.name,
-                comment:comment
+                id:data.name,
+                comment:{...comment}
             }
-            dispatchFn({type:"ADD_COMMENT",comment:commentObj});
+            dispatchFn(commentsActions.addComment({comment:commentObj}));
        });
     }
     

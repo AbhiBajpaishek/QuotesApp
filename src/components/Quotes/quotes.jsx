@@ -6,7 +6,7 @@ import styles from './quotes.module.css';
 
 const Quotes = () => {
 
-    const quotes = useSelector(context => context.quotes);
+    const quotes = useSelector(context => context.quotes.quotes);
     return (<>
             <ul>
                 {

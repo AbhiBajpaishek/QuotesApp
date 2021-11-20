@@ -5,7 +5,7 @@ import styles from './Comments.module.css';
 
 const Comments = (props) => {
 
-    const comments = useSelector(context => context.comments).filter((commentObj) => commentObj.comment.quoteId === props.quoteID);
+    const comments = useSelector(context => context.comments.comments).filter((commentObj) => commentObj.comment.quoteId === props.quoteID);
 
     return <div className= {styles["comments"]}>
         <ul>
