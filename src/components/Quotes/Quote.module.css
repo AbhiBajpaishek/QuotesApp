@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 7rem;
     width: 85vw;
 }
 
@@ -24,7 +23,6 @@
 @media(min-width:640px){
     .quote{
         flex-direction: row;
-        height: auto;
     }
 
     .quote > div{
