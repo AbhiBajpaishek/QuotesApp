@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 
 const QuotesDetail = () => {
 
-  const quotes = useSelector(context => context.quotes);
+  const quotes = useSelector(context => context.quotes.quotes);
   const navigation = useNavigate();
   const params = useParams();
   const quote = quotes.find((q) => q.id === params.quoteID);

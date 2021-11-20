@@ -14,6 +14,7 @@
 
 .quote-detail__description{
     font-size: 1rem;
+    word-break: break-word;
 }
 
 .quote-detail__author{
@@ -45,7 +46,7 @@
 
     .quote-detail__description{
         font-size: 1.5rem;
-        word-break: break-word;
+        
     }
 
     .quote-detail__author{

@@ -4,10 +4,10 @@ import Quotes from "./components/Quotes/quotes";
 import Header from "./components/UI/header";
 import QuotesDetail from "./components/QuotesDetail/QuotesDetail";
 import AddQuote from "./components/AddQuote/AddQuote";
-// import ContextProvider from "./store/context-provider";
-
-import useFirebase from "./hooks/use-firebase"
-import { useDispatch } from "react-redux";
+import useFirebase from "./hooks/use-firebase";
+import { useDispatch } from 'react-redux';
+import {quotesActions} from './store/quotesSlice';
+import { commentsActions } from './store/commentsSlice';
 import "./App.css";
 
 function App() {
@@ -21,11 +21,11 @@ function App() {
       const commentsFromDB = await getComments();
 
       quotesFromDB.forEach((q) => {
-        dispatchFn({ type: "ADD_QUOTE", quote: q });
+        dispatchFn(quotesActions.addQuote({quotes: q}));
       });
 
       commentsFromDB.forEach((comments) => {
-        dispatchFn({ type: "ADD_COMMENT", comment: comments });
+        dispatchFn(commentsActions.addComment({comment:comments}));
       });
     }
     getAllQuotesToContext();
