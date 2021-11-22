@@ -5,7 +5,7 @@
     color: white;
     padding: 1rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     font-size: 30px;
 }
 
@@ -14,13 +14,13 @@
 }
 
 .header-menu{
-    width: 22vw;
     display: none;
 }
 
 .header-menu__items{
     display: flex;
     justify-content: space-between;
+    width: 25vw;
 }
 
 .header-menu__items li{
@@ -43,6 +43,11 @@
     text-decoration: none;
 }
 
+.log-out__btn{
+    width: 3rem;
+    padding: 0;
+}
+
 @media(min-width:640px)
 {
     .header{
@@ -52,7 +57,7 @@
         color: white;
         padding: 1rem;
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         font-size: 30px;
     }
 
@@ -62,6 +67,7 @@
 
     .header-menu{
         display: block;
+        margin: 0 0.4rem;
     }
 }
 
