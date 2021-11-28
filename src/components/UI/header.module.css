@@ -6,12 +6,10 @@
     padding: 1rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     font-size: 30px;
 }
 
-.header-logo{
-    width: 30rem;
-}
 
 .header-menu{
     display: none;
@@ -20,11 +18,12 @@
 .header-menu__items{
     display: flex;
     justify-content: space-between;
-    width: 25vw;
+    align-items: center;
 }
 
 .header-menu__items li{
     list-style: none;
+    margin: 0.2rem;
 }
 
 .header-menu__items li:hover{
@@ -55,8 +54,8 @@
         position: fixed;
         background-color: teal;
         color: white;
-        padding: 1rem;
         display: flex;
+        padding: 0.5rem;
         justify-content: space-between;
         font-size: 30px;
     }
@@ -68,6 +67,10 @@
     .header-menu{
         display: block;
         margin: 0 0.4rem;
+    }
+
+    .log-out__btn{
+        width: auto !important;
     }
 }
 
