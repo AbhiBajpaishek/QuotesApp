@@ -1,0 +1,22 @@
+.signup-form{
+    display: flex;
+    flex-direction: column;
+}
+
+.signup-form > label{
+    margin-bottom: 0.1rem;
+}
+
+.signup-form > input{
+    margin-bottom: 0.9rem;
+}
+
+.signup-btn{
+    margin: auto;
+}
+
+.login{
+    text-align: center;
+    color: black;
+    margin-top: 0.5rem ;
+}

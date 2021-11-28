@@ -2,11 +2,16 @@ import {useCallback} from "react";
 import {useDispatch} from "react-redux";
 import { quotesActions } from "../store/quotesSlice";
 import { commentsActions } from "../store/commentsSlice";
+import { userActions } from "../store/userSlice";
+import {useNavigate} from "react-router";
 
 const URL = "https://quotes-app-b30d6-default-rtdb.firebaseio.com/";
+const signupURL = "https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=AIzaSyDyeT1Dx2MmD2dRoCNnsgzhajgc4xsize4";
+const signinURL = "https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyDyeT1Dx2MmD2dRoCNnsgzhajgc4xsize4";
 
 const useFirebase = () => {
 
+    const navigate = useNavigate();
     const dispatchFn = useDispatch();
 
     const getQuotes = useCallback(async () => {
@@ -73,13 +78,71 @@ const useFirebase = () => {
             dispatchFn(commentsActions.addComment({comment:commentObj}));
        });
     }
+
+    const signUp = (email,password) => {
+        fetch(signupURL,{
+            body: JSON.stringify({
+                email:email,
+                password:password,
+                returnSecureToken:true
+            }),
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then((response) => {
+            if(response.ok){
+                console.log("Signed Up!!!");
+            }
+            return response.json();
+        }).then((data) => {
+            if(data.error)
+                alert(data.error.message);
+            else{
+                //dispatchFn(userActions.logout());
+                navigate('login');
+            }
+        }).catch((err) => {
+            alert(err);
+        })
+    }
+
+    const signIn = (email,password) => {
+        fetch(signinURL,{
+            body: JSON.stringify({
+                email:email,
+                password:password,
+                returnSecureToken:true
+            }),
+            method: "POST",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        }).then((response) => {
+            if(response.ok){
+                console.log("Signed in succesfully");
+            }
+            return response.json();
+        }).then((data) => {
+            if(data.error)
+                alert(data.error.message);
+            else{
+                dispatchFn(userActions.login({token:data.idToken,expiresIn:data.expiresIn}));
+                navigate('../quotes');
+            }
+        }).catch((err) => {
+            console.log("Error: ",err);
+        })
+    }
     
 
     return {
         addQuote,
         getQuotes,
         getComments,
-        addComment
+        addComment,
+        signUp,
+        signIn
     };
 };
 

@@ -1,19 +1,29 @@
-import React,{useEffect} from 'react';
-import { Routes, Route, Navigate } from "react-router-dom";
-import Quotes from "./components/Quotes/quotes";
+import React,{useEffect, useCallback} from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from "./components/UI/header";
-import QuotesDetail from "./components/QuotesDetail/QuotesDetail";
-import AddQuote from "./components/AddQuote/AddQuote";
 import useFirebase from "./hooks/use-firebase";
-import { useDispatch } from 'react-redux';
 import {quotesActions} from './store/quotesSlice';
 import { commentsActions } from './store/commentsSlice';
+import { userActions } from './store/userSlice';
 import "./App.css";
+import AppRoute from './components/Helper/AppRoute';
 
 function App() {
 
   const { getQuotes, getComments } = useFirebase();
   const dispatchFn = useDispatch();
+  const loginCtx = useSelector(ctx => ctx.users);
+
+
+  const isSessionAvailable = useCallback(() => {
+      const expiresIn= localStorage.getItem("expiresIn");
+      if(expiresIn)
+      {
+        const token = localStorage.getItem('token');
+        dispatchFn(userActions.login({token,expiresIn}));
+      }
+  },[dispatchFn]);
+
 
   useEffect(() => {
     async function getAllQuotesToContext() {
@@ -28,26 +38,16 @@ function App() {
         dispatchFn(commentsActions.addComment({comment:comments}));
       });
     }
+    isSessionAvailable();
     getAllQuotesToContext();
-  }, [getQuotes, getComments, dispatchFn]);
+  }, [getQuotes, getComments, dispatchFn,isSessionAvailable]);
 
-
+  const isLoggedIn = !!loginCtx.token;
   return (
     <div className="App">
       <Header></Header>
         <main>
-          <Routes>
-            <Route path="/quotes" element={<Quotes></Quotes>} />
-
-            <Route path="/addQuotes" element={<AddQuote />} />
-
-            <Route
-              path="quotes/:quoteID/*"
-              element={<QuotesDetail></QuotesDetail>}
-            />
-
-            <Route path="/" element={<Navigate to="/quotes"></Navigate>} />
-          </Routes>
+          <AppRoute status = {isLoggedIn}></AppRoute>
         </main>
     </div>
   );
