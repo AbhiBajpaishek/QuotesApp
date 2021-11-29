@@ -1,4 +1,5 @@
 import React,{useState} from "react";
+import reactDom from "react-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink} from 'react-router-dom';
 import styles from './header.module.css';
@@ -24,7 +25,7 @@ const Header = () =>{
 
     return (
         <header className={styles["header"]}>
-        {isSideNavVisible && <SideNav toggleNavMenu = {toggleMenuHander}/> }
+        {isSideNavVisible && reactDom.createPortal(<SideNav toggleNavMenu = {toggleMenuHander}/>,document.getElementById('root')) }
         <div className={styles["header-logo"]}>
             Great Quotes
         </div>
