@@ -6,6 +6,8 @@ import AddQuote from "../AddQuote/AddQuote";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
 import CreateRole from "../Roles/CreateRole";
+import Roles from "../Roles/Roles";
+import RolesMaster from "../Roles/RolesMaster";
 
 const AppRoute = (props) => {
   const isLoggedIn = props.status;
@@ -24,6 +26,8 @@ const AppRoute = (props) => {
         <Route path="/quotes" element={<Quotes></Quotes>} />
         <Route path="/addQuotes" element={<AddQuote />} />
         <Route path ="/addRole" element = {<CreateRole/>} />
+        <Route path ="/showRoles" element = {<Roles/>} />
+        <Route path ="/showRoles/:roleId/*" element = {<RolesMaster/>} />
       </Routes>
     );
   } else {
