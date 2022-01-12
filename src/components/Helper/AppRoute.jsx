@@ -5,6 +5,7 @@ import QuotesDetail from "../QuotesDetail/QuotesDetail";
 import AddQuote from "../AddQuote/AddQuote";
 import Signup from "../Signup/Signup";
 import Login from "../Login/Login";
+import CreateRole from "../Roles/CreateRole";
 
 const AppRoute = (props) => {
   const isLoggedIn = props.status;
@@ -22,6 +23,7 @@ const AppRoute = (props) => {
         />
         <Route path="/quotes" element={<Quotes></Quotes>} />
         <Route path="/addQuotes" element={<AddQuote />} />
+        <Route path ="/addRole" element = {<CreateRole/>} />
       </Routes>
     );
   } else {
